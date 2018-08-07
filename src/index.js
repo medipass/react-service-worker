@@ -41,7 +41,7 @@ export default class extends Component {
   };
 
   register = () => {
-    if ('serviceWorker' in navigator) {
+    if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
       // The URL constructor is available in all browsers that support SW.
       const publicUrl = new URL(this.props.publicUrl, window.location);
       if (publicUrl.origin !== window.location.origin) {
