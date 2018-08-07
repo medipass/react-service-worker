@@ -1,6 +1,6 @@
 # React Service Worker
 
-> A headless React component that wraps around the Navigator Service Worker API.
+> A headless React component that wraps around the Navigator Service Worker API to manage your service workers. Inspired by [Create React App's service worker registration script](https://github.com/facebook/create-react-app/blob/next/packages/react-scripts/template/src/serviceWorker.js).
 
 ## Table of Contents
 
@@ -66,8 +66,8 @@ import App from './App';
 export default () => (
   <WithServiceWorker
     onError={err => console.log(`An error occured: ${err}`)}
-    onInstalled={err => console.log('Service worker installed')}
-    onUpdated={err => console.log('Service worker updated')}
+    onInstalled={() => console.log('Service worker installed')}
+    onUpdated={() => console.log('Service worker updated')}
     publicServiceWorkerDest="/service-worker.js"
   >
     {({ registration, update, unregister }) => (
@@ -121,7 +121,7 @@ Invoked when the service worker is installed.
 
 Example usage:
 
-```<WithServiceWorker onInstalled={err => console.log('Service worker successfully installed.')}>```
+```<WithServiceWorker onInstalled={() => console.log('Service worker successfully installed.')}>```
 
 ### onUpdated
 
@@ -131,13 +131,13 @@ Invoked when the service worker is updated.
 
 Example usage:
 
-```<WithServiceWorker onUpdated={err => console.log('Service worker successfully updated.')}>```
+```<WithServiceWorker onUpdated={() => console.log('Service worker successfully updated.')}>```
 
 ### registerOnMount
 
 > `boolean` | Optional | Default: `true`
 
-Invoked when the service worker is updated.
+If `true`, service worker will be registered when the component is mounted.
 
 Example usage:
 
