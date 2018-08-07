@@ -16,7 +16,8 @@
     "start": "nwb serve-react-demo",
     "lint": "eslint src/",
     "storybook": "start-storybook -s ./.storybook/public -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "prepublish": "yarn lint && yarn build"
   },
   "dependencies": {},
   "peerDependencies": {
