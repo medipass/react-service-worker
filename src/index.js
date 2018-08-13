@@ -114,12 +114,12 @@ export default class extends Component {
 
   unregister = () => {
     const { registration } = this.state;
-    registration.unregister();
+    registration && registration.unregister();
   };
 
   update = () => {
     const { registration } = this.state;
-    registration.update();
+    registration && registration.update();
   };
 
   render = () => {
